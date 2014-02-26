@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mac Movie - Moive Entry</title>
+<script type="text/javascript" src="js/MovingImage.js"></script>
+<script type="text/javascript" src="js/GetSelection.js"></script>
+<link href="../6ww/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="../6ww/css/mycss.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="initText()">
+<div id="headlayer" class="Layertitle">
+	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.html">Enter Movies</a></p>
+	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Welcome, this is MacMovie!</span></p>
+</div>
+<div class="Layer0" id="bodylayer">
+  <form id="form1" name="form1" method="post" action="">
+  <div class="me_div_cateselectcontainer">
+  <div id="div_category" class="me_div_cateselector">
+   <p>Please input your favorite movie(s) information. You need to input at least one, up to five.</p>
+   <p>To add more than one movie, please click the checkbox at the beginning of the table to enable your input.</p>
+   <p>After complete input, click CONFIRM to submit your information.</p>
+    <br/>
+    <input type="button" class="btn-lg" value="CONFIRM" />
+  </div>
+	<div id="selectedcate" class="me_div_cateselect" style="visibility:visible">
+		   <label for="mcategories"></label>
+    <select name="mcategories" class="list-group" id="mcategories">
+      <option value="Empty">Please choose 3 categories </option>
+      <option id="movc" name="movc" value="action" class="li">Action</option>
+      <option id="movc" name="movc" value="animation">Animation</option>
+      <option id="movc" name="movc" value="comedy">Comedy</option>
+      <option id="movc" name="movc" value="documentary">Documentary</option>
+      <option id="movc" name="movc" value="family">Family</option>
+      <option id="movc" name="movc" value="horror">Horror</option>
+      <option id="movc" name="movc" value="musical">Musical</option>
+      <option id="movc" name="movc" value="romance">Romance</option>
+      <option id="movc" name="movc" value="adventure">Adventure</option>
+      <option id="movc" name="movc"n value="biography">Biography</option>
+      <option id="movc" name="movc" value="drama">Drama</option>
+      <option id="movc" name="movc" value="history">History</option>
+      <option id="movc" name="movc" value="mystery">Mystery</option>
+      <option id="movc" name="movc" value="scifi">Sci-fi</option>
+    </select>
+    <br/>
+    <input type="button" class="btn-lg" id="subcate" onclick="checkSelection()" value="Add a choice" />
+	<input type="button" class="btn-lg" onclick="resetSelections()" value="RESET"/>           
+	<br/>
+	<br/>
+    <p><label name="l0" id="l0" class="movienumber" >Empty</label> | <label name="l1" id="l1" class="movienumber" >Empty</label> | <label name="l2" id="l2" class="movienumber" >Empty</label></p> 
+  	</div>
+</div>  
+
+<div class="me_div_inputcontainer">
+<hr/ >
+My favorite movie <span class="movienumber">#1</span>:
+<table width="639" border="0" cellpadding="0" cellspacing="0" class="table-condensed">
+    <tr>
+      <td width="47%">Movie Name</td>
+      <td width="53%">
+        <input type="text" name="tf_mname1" id="tf_mname1" /></td>
+    </tr>
+    <tr>
+        <td>Year</td>
+        <td><input type="text" name="tf_myear1" id="tf_myear1" /></td>
+    </tr>
+    <tr>
+      <td>Director</td>
+      <td><input type="text" name="tf_mdir1" id="tf_mdir1" /></td>
+    </tr>
+    <tr>
+      <td>Actors</td>
+      <td><input type="text" name="tf_actor1" id="tf_actor1" /></td>
+    </tr>
+    <tr>
+      <td>Genre</td>
+      <td><select name="mcategories1" class="list-group" id="mcategories1">
+<option value="action" selected="selected" class="li" id="movc1" name="movc1">Action</option>
+        <option id="movc1" name="movc1" value="animation">Animation</option>
+        <option id="movc1" name="movc1" value="comedy">Comedy</option>
+        <option id="movc1" name="movc1" value="documentary">Documentary</option>
+        <option id="movc1" name="movc1" value="family">Family</option>
+        <option id="movc1" name="movc1" value="horror">Horror</option>
+        <option id="movc1" name="movc1" value="musical">Musical</option>
+        <option id="movc1" name="movc1" value="romance">Romance</option>
+        <option id="movc1" name="movc1" value="adventure">Adventure</option>
+        <option id="movc1" name="movc1" value="biography">Biography</option>
+        <option id="movc1" name="movc1" value="drama">Drama</option>
+        <option id="movc1" name="movc1" value="history">History</option>
+        <option id="movc1" name="movc1" value="mystery">Mystery</option>
+        <option id="movc1" name="movc1" value="scifi">Sci-fi</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>Rating score (out of 10)</td>
+      <td><input type="text" name="tf_rating1" id="tf_rating1" /></td>
+    </tr>
+  </table>
+  <hr/>
+  <input type="checkbox" name="checkbox2" id="checkbox2" onclick="enableinput(2)"/>
+  My favorite movie <span class="movienumber">#2</span>:
+<table width="639" border="0" cellpadding="0" cellspacing="0" class="table-condensed">
+    <tr>
+      <td width="47%">Movie Name</td>
+      <td width="53%">
+        <input name="tf_mname2" type="text" disabled="disabled" id="tf_mname2" /></td>
+    </tr>
+    <tr>
+        <td>Year</td>
+        <td><input name="tf_myear2" type="text" disabled="disabled" id="tf_myear2" /></td>
+    </tr>
+    <tr>
+      <td>Director</td>
+      <td><input name="tf_mdir2" type="text" disabled="disabled" id="tf_mdir2" /></td>
+    </tr>
+    <tr>
+      <td>Actors</td>
+      <td><input name="tf_actor2" type="text" disabled="disabled" id="tf_actor2" /></td>
+    </tr>
+    <tr>
+      <td>Genre</td>
+      <td><select name="mcategories2" class="list-group" id="mcategories2" disabled="disabled">
+<option value="action" selected="selected" class="li" id="movc2" name="movc2">Action</option>
+        <option id="movc2" name="movc2" value="animation">Animation</option>
+        <option id="movc2" name="movc2" value="comedy">Comedy</option>
+        <option id="movc2" name="movc2" value="documentary">Documentary</option>
+        <option id="movc2" name="movc2" value="family">Family</option>
+        <option id="movc2" name="movc2" value="horror">Horror</option>
+        <option id="movc2" name="movc2" value="musical">Musical</option>
+        <option id="movc2" name="movc2" value="romance">Romance</option>
+        <option id="movc2" name="movc2" value="adventure">Adventure</option>
+        <option id="movc2" name="movc2" value="biography">Biography</option>
+        <option id="movc2" name="movc2" value="drama">Drama</option>
+        <option id="movc2" name="movc2" value="history">History</option>
+        <option id="movc2" name="movc2" value="mystery">Mystery</option>
+        <option id="movc2" name="movc2" value="scifi">Sci-fi</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>Rating score (out of 10)</td>
+      <td><input name="tf_rating2" type="text" disabled="disabled" id="tf_rating2" /></td>
+    </tr>
+  </table>  
+  <hr/>  
+  <input type="checkbox" name="checkbox3" id="checkbox3" onclick="enableinput(3)"/>
+  My favorite movie <span class="movienumber">#3</span>:
+<table width="639" border="0" cellpadding="0" cellspacing="0" class="table-condensed">
+    <tr>
+      <td width="47%">Movie Name</td>
+      <td width="53%">
+        <input type="text" name="tf_mname3" id="tf_mname3" /></td>
+    </tr>
+    <tr>
+        <td>Year</td>
+        <td><input type="text" name="tf_myear3" id="tf_myear3" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td>Director</td>
+      <td><input type="text" name="tf_mdir3" id="tf_mdir3" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td>Actors</td>
+      <td><input type="text" name="tf_actor3" id="tf_actor3" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td>Genre</td>
+      <td><select name="mcategories3" class="list-group" id="mcategories3" disabled="disabled">
+<option value="action" selected="selected" class="li" id="movc3" name="movc3">Action</option>
+        <option id="movc3" name="movc3" value="animation">Animation</option>
+        <option id="movc3" name="movc3" value="comedy">Comedy</option>
+        <option id="movc3" name="movc3" value="documentary">Documentary</option>
+        <option id="movc3" name="movc3" value="family">Family</option>
+        <option id="movc3" name="movc3" value="horror">Horror</option>
+        <option id="movc3" name="movc3" value="musical">Musical</option>
+        <option id="movc3" name="movc3" value="romance">Romance</option>
+        <option id="movc3" name="movc3" value="adventure">Adventure</option>
+        <option id="movc3" name="movc3" value="biography">Biography</option>
+        <option id="movc3" name="movc3" value="drama">Drama</option>
+        <option id="movc3" name="movc3" value="history">History</option>
+        <option id="movc3" name="movc3" value="mystery">Mystery</option>
+        <option id="movc3" name="movc3" value="scifi">Sci-fi</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>Rating score (out of 10)</td>
+      <td><input type="text" name="tf_rating3" id="tf_rating3" disabled="disabled"/></td>
+    </tr>
+  </table> 
+  <hr/>
+  <input type="checkbox" name="checkbox4" id="checkbox4" onclick="enableinput(4)" />
+  My favorite movie <span class="movienumber">#4</span>:
+<table width="639" border="0" cellpadding="0" cellspacing="0" class="table-condensed">
+    <tr>
+      <td width="47%">Movie Name</td>
+      <td width="53%">
+        <input type="text" name="tf_mname4" id="tf_mname4" disabled="disabled"/></td>
+    </tr>
+    <tr>
+        <td>Year</td>
+        <td><input type="text" name="tf_myear4" id="tf_myear4" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td>Director</td>
+      <td><input type="text" name="tf_mdir4" id="tf_mdir4" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td>Actors</td>
+      <td><input type="text" name="tf_actor4" id="tf_actor4" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td>Genre</td>
+      <td><select name="mcategories4" class="list-group" id="mcategories4" disabled="disabled">
+<option value="action" selected="selected" class="li" id="movc4" name="movc4">Action</option>
+        <option id="movc4" name="movc4" value="animation">Animation</option>
+        <option id="movc4" name="movc4" value="comedy">Comedy</option>
+        <option id="movc4" name="movc4" value="documentary">Documentary</option>
+        <option id="movc4" name="movc4" value="family">Family</option>
+        <option id="movc4" name="movc4" value="horror">Horror</option>
+        <option id="movc4" name="movc4" value="musical">Musical</option>
+        <option id="movc4" name="movc4" value="romance">Romance</option>
+        <option id="movc4" name="movc4" value="adventure">Adventure</option>
+        <option id="movc4" name="movc4" value="biography">Biography</option>
+        <option id="movc4" name="movc4" value="drama">Drama</option>
+        <option id="movc4" name="movc4" value="history">History</option>
+        <option id="movc4" name="movc4" value="mystery">Mystery</option>
+        <option id="movc4" name="movc4" value="scifi">Sci-fi</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>Rating score (out of 10)</td>
+      <td><input type="text" name="tf_rating4" id="tf_rating4" disabled="disabled"/></td>
+    </tr>
+  </table> 
+  <hr/>
+  <input type="checkbox" name="checkbox5" id="checkbox5" onclick="enableinput(5)"/>
+  My favorite movie <span class="movienumber">#5</span>:
+<table width="639" border="0" cellpadding="0" cellspacing="0" class="table-condensed">
+    <tr>
+      <td width="47%">Movie Name</td>
+      <td width="53%">
+        <input type="text" name="tf_mname5" id="tf_mname5" disabled="disabled"/></td>
+    </tr>
+    <tr>
+        <td>Year</td>
+        <td><input type="text" name="tf_myear5" id="tf_myear5" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td>Director</td>
+      <td><input type="text" name="tf_mdir5" id="tf_mdir5" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td>Actors</td>
+      <td><input type="text" name="tf_actor5" id="tf_actor5" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td>Genre</td>
+      <td><select name="mcategories1" class="list-group" id="mcategories1" disabled="disabled">
+<option value="action" selected="selected" class="li" id="movc5" name="movc5">Action</option>
+        <option id="movc5" name="movc5" value="animation">Animation</option>
+        <option id="movc5" name="movc5" value="comedy">Comedy</option>
+        <option id="movc5" name="movc5" value="documentary">Documentary</option>
+        <option id="movc5" name="movc5" value="family">Family</option>
+        <option id="movc5" name="movc5" value="horror">Horror</option>
+        <option id="movc5" name="movc5" value="musical">Musical</option>
+        <option id="movc5" name="movc5" value="romance">Romance</option>
+        <option id="movc5" name="movc5" value="adventure">Adventure</option>
+        <option id="movc5" name="movc5" value="biography">Biography</option>
+        <option id="movc5" name="movc5" value="drama">Drama</option>
+        <option id="movc5" name="movc5" value="history">History</option>
+        <option id="movc5" name="movc5" value="mystery">Mystery</option>
+        <option id="movc5" name="movc5" value="scifi">Sci-fi</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>Rating score (out of 10)</td>
+      <td><input type="text" name="tf_rating5" id="tf_rating5" disabled="disabled"/></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
+</form>  
+</div>
+0 
+
+</body>
+</html>

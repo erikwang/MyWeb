@@ -1,0 +1,192 @@
+/* CSS Document */
+.movingtext {font-size: 11px; position:absolute;left:0px;bottom:0px; background-color:#660000; color:#FFFFFF;}
+
+input:hover {color:#00F}
+input:focus {background-color:#900;color:#FFF}
+
+.me_div_cateselector {
+	position:absolute;
+	left:10px;
+	top:1px;
+	width:293px;
+	font-size:14px;
+}
+
+.me_div_cateselectcontainer{
+	position:absolute;
+	left:10px;
+	top:1px;
+	width:80%;
+
+	
+}
+
+.me_div_cateselect {
+	position:absolute;
+	left: 320px;
+	top: 20px;
+	width:65%;
+	margin-left:10px;
+	height=400px;
+	color:#FFF
+	border: thin dotted #C3C;
+	vertical-align: top;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	overflow:auto;
+}
+
+
+.me_div_inputcontainer{
+	position:absolute;
+	left:10px;
+	top:220px;
+	width:80%;
+	font-size:16px;
+}
+
+.movieimg {position:inherit;left:2px;top:2px;width:185px;height:273px}
+
+.divmessage{
+	position: absolute;
+	top:1px;
+	left: 2px;
+	width: 90%;
+	color:#FFF;
+	height: 100px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size:18px;
+}
+
+.div_cateselectcontainer{
+	position: absolute;
+	left: 2px;
+	width: 90%;
+	color:#FFF;
+	height: 120px;
+	overflow:auto;
+}
+
+
+.Layertitle{
+	position: absolute;
+	left: 2px;
+	width: 80%;
+	height: 100px;
+	background-color: #660000;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size:18px;
+}
+
+.Layer0 {
+	position: absolute;
+	left: 2px;
+	top: 101px;
+	width: 80%;
+	height: 1450px;
+	z-index: 0;
+	background-color:#333;
+	color:#FFF;
+	background-image: url(../../MacMovies/img/3178-line.jpg);
+	overflow: auto
+}
+.Layer1 {
+	position:absolute;
+	left:30px;
+	top:20px;
+	width:193px;
+	height:278px;
+	z-index:1;
+	background-color: #C3C;	
+}
+.Layer2 {
+	position:absolute;
+	left:50px;
+	top:60px;
+	width:193px;
+	height:278px;
+	z-index:2;
+	background-color: #FFFF00;
+}
+.Layer3 {
+	position:absolute;
+	left:70px;
+	top:90px;
+	width:193px;
+	height:278px;
+	z-index:3;
+	background-color: #00FFFF;
+}
+
+
+.tpanel1 {
+	position:absolute;
+	left: 320px;
+	top: 20px;
+	width:65%;
+	height=400px;
+	visibility:hidden;
+	background-color:#003;
+	background-position: center center;
+	clear: left;
+	border: thin dotted #C3C;
+	vertical-align: top;
+	z-index:1;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	overflow:auto;
+}
+
+
+.tpanel2 {
+	position:absolute;
+	left: 320px;
+	top: 20px;
+	width:65%;
+	height=450px;
+	visibility:hidden;
+	background-color:#003;
+	background-position: center center;
+	clear: left;
+	border: thin dotted #FFFF00;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	vertical-align: top;
+	z-index:1;
+	font-size: 14px;
+	overflow:auto;
+}
+
+
+.tpanel3 {
+	position:absolute;
+	left: 320px;
+	top: 20px;
+	width:65%;
+	height=450px;
+	visibility:hidden;
+	background-color:#003;
+	background-position: center center;
+	border: thin dotted #00FFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	vertical-align: top;
+	z-index:1;
+	overflow: auto;
+	font-size: 14px;
+	overflow:auto;
+}
+
+.li{
+ font:larger;
+}
+
+.body {
+	font-size:14px;
+	color:#FFF;
+}
+
+.movienumber {
+	color: #0FF;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 24px;
+}

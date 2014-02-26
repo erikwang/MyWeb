@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Untitled Document</title>
+<script type="text/javascript">
+function fun1(myList){
+var alist = new Array(1,3,5);
+myList[3] = 14;
+myList = alist;
+myList[2] = 100;
+alist[3] = 999;
+}
+
+
+function fun2(){
+	var t = 0;
+	var fe = 1;
+	var tt = 1;
+	for(temp=0;temp<50;temp++){
+		fe = tt + t;
+		tt = t;
+		t = fe;
+		document.write(fe+",");
+	}
+
+
+}
+
+</script>
+</head>
+
+<body>
+<script type = "text/javascript">
+var list1 = new Array(2,4,6,8);
+fun1(list1);
+document.write("<p>Content of List1: "+list1+"</p>");
+
+theList = [3,5,2,8,10];
+theList.sort(function(a,b){return (b-a);})
+document.write(theList);
+document.write("<br />");
+
+fun2();
+
+</script>
+</body>
+</html>
