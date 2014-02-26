@@ -5,24 +5,27 @@
 <title>Mac Movie - Moive Entry</title>
 <script type="text/javascript" src="js/MovingImage.js"></script>
 <script type="text/javascript" src="js/GetSelection.js"></script>
-<link href="../6ww/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="../6ww/css/mycss.css" rel="stylesheet" type="text/css" />
+<script src="js/VaildateInformation.js" type="text/javascript"></script>
+
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="css/mycss.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body onload="initText()">
 <div id="headlayer" class="Layertitle">
 	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.html">Enter Movies</a></p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Welcome, this is MacMovie!</span></p>
+	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Enter favorite movies</span></p>
 </div>
 <div class="Layer0" id="bodylayer">
-  <form id="form1" name="form1" method="post" action="">
+  <form id="form1" name="form1" method="post" action="movieentryresult.php" onsubmit="return vaildateMovie(this)">
   <div class="me_div_cateselectcontainer">
   <div id="div_category" class="me_div_cateselector">
    <p>Please input your favorite movie(s) information. You need to input at least one, up to five.</p>
    <p>To add more than one movie, please click the checkbox at the beginning of the table to enable your input.</p>
    <p>After complete input, click CONFIRM to submit your information.</p>
     <br/>
-    <input type="button" class="btn-lg" value="CONFIRM" />
+    <input name="Submit" type="submit" class="btn-lg" value="CONFIRM" />
+    <input type="reset" class="btn-lg" value="RESET ALL!"/>
   </div>
 	<div id="selectedcate" class="me_div_cateselect" style="visibility:visible">
 		   <label for="mcategories"></label>
@@ -45,10 +48,11 @@
     </select>
     <br/>
     <input type="button" class="btn-lg" id="subcate" onclick="checkSelection()" value="Add a choice" />
-	<input type="button" class="btn-lg" onclick="resetSelections()" value="RESET"/>           
+	<input type="button" class="btn-lg" onclick="resetSelections()" value="RESET"/> 
+   	<input type="button" class="btn-lg" onclick="goHome()" value="QUIT"/>           
 	<br/>
 	<br/>
-    <p><label name="l0" id="l0" class="movienumber" >Empty</label> | <label name="l1" id="l1" class="movienumber" >Empty</label> | <label name="l2" id="l2" class="movienumber" >Empty</label></p> 
+    <p><input name="favocate1" type="text" readonly="readonly" class="bgtranstext" id="la0" value="Empty" size="12px" ></input> <input name="favocate2" type="text" readonly="readonly" class="bgtranstext" id="la1" value="Empty" size="12px" ></input> <input name="favocate3" type="text" readonly="readonly" class="bgtranstext" id="la2" value="Empty" size="12px" ></input></p> 
   	</div>
 </div>  
 
@@ -59,19 +63,19 @@ My favorite movie <span class="movienumber">#1</span>:
     <tr>
       <td width="47%">Movie Name</td>
       <td width="53%">
-        <input type="text" name="tf_mname1" id="tf_mname1" /></td>
+        <input type="text" name="tf_mname1" id="tf_mname1" placeholder="i.e. Gone with the Wind " /></td>
     </tr>
     <tr>
         <td>Year</td>
-        <td><input type="text" name="tf_myear1" id="tf_myear1" /></td>
+        <td><input type="text" name="tf_myear1" id="tf_myear1" placeholder="i.e. 1939"/></td>
     </tr>
     <tr>
       <td>Director</td>
-      <td><input type="text" name="tf_mdir1" id="tf_mdir1" /></td>
+      <td><input type="text" name="tf_mdir1" id="tf_mdir1" placeholder="i.e. Victor Fleming"/></td>
     </tr>
     <tr>
       <td>Actors</td>
-      <td><input type="text" name="tf_actor1" id="tf_actor1" /></td>
+      <td><input type="text" name="tf_mactor1" id="tf_mactor1"  placeholder="i.e. Clark Gable, Vivien Leigh"/></td>
     </tr>
     <tr>
       <td>Genre</td>
@@ -94,7 +98,7 @@ My favorite movie <span class="movienumber">#1</span>:
     </tr>
     <tr>
       <td>Rating score (out of 10)</td>
-      <td><input type="text" name="tf_rating1" id="tf_rating1" /></td>
+      <td><input type="text" name="tf_mrating1" id="tf_mrating1" placeholder="0 - 10"/></td>
     </tr>
   </table>
   <hr/>
@@ -116,7 +120,7 @@ My favorite movie <span class="movienumber">#1</span>:
     </tr>
     <tr>
       <td>Actors</td>
-      <td><input name="tf_actor2" type="text" disabled="disabled" id="tf_actor2" /></td>
+      <td><input name="tf_mactor2" type="text" disabled="disabled" id="tf_mactor2" /></td>
     </tr>
     <tr>
       <td>Genre</td>
@@ -139,7 +143,7 @@ My favorite movie <span class="movienumber">#1</span>:
     </tr>
     <tr>
       <td>Rating score (out of 10)</td>
-      <td><input name="tf_rating2" type="text" disabled="disabled" id="tf_rating2" /></td>
+      <td><input name="tf_mrating2" type="text" disabled="disabled" id="tf_mrating2" /></td>
     </tr>
   </table>  
   <hr/>  
@@ -161,7 +165,7 @@ My favorite movie <span class="movienumber">#1</span>:
     </tr>
     <tr>
       <td>Actors</td>
-      <td><input type="text" name="tf_actor3" id="tf_actor3" disabled="disabled"/></td>
+      <td><input type="text" name="tf_mactor3" id="tf_mactor3" disabled="disabled"/></td>
     </tr>
     <tr>
       <td>Genre</td>
@@ -184,7 +188,7 @@ My favorite movie <span class="movienumber">#1</span>:
     </tr>
     <tr>
       <td>Rating score (out of 10)</td>
-      <td><input type="text" name="tf_rating3" id="tf_rating3" disabled="disabled"/></td>
+      <td><input type="text" name="tf_mrating3" id="tf_rating3" disabled="disabled"/></td>
     </tr>
   </table> 
   <hr/>
@@ -206,7 +210,7 @@ My favorite movie <span class="movienumber">#1</span>:
     </tr>
     <tr>
       <td>Actors</td>
-      <td><input type="text" name="tf_actor4" id="tf_actor4" disabled="disabled"/></td>
+      <td><input type="text" name="tf_mactor4" id="tf_mactor4" disabled="disabled"/></td>
     </tr>
     <tr>
       <td>Genre</td>
@@ -229,7 +233,7 @@ My favorite movie <span class="movienumber">#1</span>:
     </tr>
     <tr>
       <td>Rating score (out of 10)</td>
-      <td><input type="text" name="tf_rating4" id="tf_rating4" disabled="disabled"/></td>
+      <td><input type="text" name="tf_mrating4" id="tf_mrating4" disabled="disabled"/></td>
     </tr>
   </table> 
   <hr/>
@@ -251,11 +255,11 @@ My favorite movie <span class="movienumber">#1</span>:
     </tr>
     <tr>
       <td>Actors</td>
-      <td><input type="text" name="tf_actor5" id="tf_actor5" disabled="disabled"/></td>
+      <td><input type="text" name="tf_mactor5" id="tf_mactor5" disabled="disabled"/></td>
     </tr>
     <tr>
       <td>Genre</td>
-      <td><select name="mcategories1" class="list-group" id="mcategories1" disabled="disabled">
+      <td><select name="mcategories5" class="list-group" id="mcategories5" disabled="disabled">
 <option value="action" selected="selected" class="li" id="movc5" name="movc5">Action</option>
         <option id="movc5" name="movc5" value="animation">Animation</option>
         <option id="movc5" name="movc5" value="comedy">Comedy</option>
@@ -274,7 +278,7 @@ My favorite movie <span class="movienumber">#1</span>:
     </tr>
     <tr>
       <td>Rating score (out of 10)</td>
-      <td><input type="text" name="tf_rating5" id="tf_rating5" disabled="disabled"/></td>
+      <td><input type="text" name="tf_mrating5" id="tf_mrating5" disabled="disabled"/></td>
     </tr>
     <tr>
       <td></td>

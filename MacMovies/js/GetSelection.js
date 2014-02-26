@@ -18,7 +18,7 @@ function checkSelection(){
 	}
 	
 	if(checkDuplicate(strvalue)){
-		document.getElementById("l"+count).innerHTML = strvalue;		
+		document.getElementById("la"+count).value = strvalue;		
 		count++;
 	}else{
 		alert("Found a duplicated input, please chooice another one.")
@@ -28,8 +28,7 @@ function checkSelection(){
 
 function checkDuplicate(thevalue){
 	for(t=0;t<2;t++){
-		//alert(document.getElementById("l"+t).innerHTML);
-		if (thevalue == document.getElementById("l"+t).innerHTML && thevalue != "Empty"){
+		if (thevalue == document.getElementById("la"+t).value && thevalue != "Empty"){
 			return false;	
 		}else{
 			return true;	
@@ -47,9 +46,9 @@ function checkCount(){
 }
 
 function resetSelections(){
-	document.getElementById("l0").innerHTML = "Empty";
-	document.getElementById("l1").innerHTML = "Empty";
-	document.getElementById("l2").innerHTML = "Empty";
+	document.getElementById("la0").value = "Empty";
+	document.getElementById("la1").value = "Empty";
+	document.getElementById("la2").value = "Empty";
 	count = 0;
 }
 
@@ -61,8 +60,8 @@ function enableinput(i){
 	}
 	document.getElementById("tf_mname"+i).disabled = flag;
 	document.getElementById("tf_myear"+i).disabled = flag;
-	document.getElementById("tf_actor"+i).disabled = flag;
+	document.getElementById("tf_mactor"+i).disabled = flag;
 	document.getElementById("tf_mdir"+i).disabled = flag;
-	document.getElementById("tf_rating"+i).disabled = flag;
+	document.getElementById("tf_mrating"+i).disabled = flag;
 	document.getElementById("mcategories"+i).disabled = flag;
 }

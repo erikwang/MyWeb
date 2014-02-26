@@ -29,27 +29,29 @@ input:focus {background-color:#900;color:#FFF}
 <script type="text/javascript" src="js/MovingToTop.js"></script>
 <script src="js/VaildateInformation.js" type="text/javascript"></script>
 
-<link href="../6ww/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="../6ww/css/mycss.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="css/mycss.css" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body onload="initText()">
 <div id="headlayer" class="Layertitle">
 	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.html">Enter Movies</a></p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Registeration completed! Thank you and have fun!</span></p>
+	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Registeration completed!</span></p>
 </div>
-<div class="Layer0">
+<div class="Layer0" id="bodylayer">
 <p class="movienumber">Thank you for your registeration</p>
 <p>Please review thefollowing information you have entered:</p>
-<p>User Name:<?php print($username);?></p>
-<p>First Name:<?php print($firstname);?></p>
-<p>Last Name:<?php print($lastname);?></p>
-<p>Telephone Number:<?php print($phone);?> </p>
-<p>Province:<?php print($provience);?></p>
-<p>City:<?php print($city);?></p>
-<p>Street: <?php print($street);?></p>
-<p>Postal: <?php print($postal);?></p>
+<p>User Name:&nbsp;<?php print($username);?></p>
+<p>First Name:&nbsp;<?php print($firstname);?></p>
+<p>Last Name:&nbsp;<?php print($lastname);?></p>
+<p>Telephone Number:&nbsp;<?php print($phone);?> </p>
+<p>Province:&nbsp;<?php print($provience);?></p>
+<p>City:&nbsp;<?php print($city);?></p>
+<p>Street:&nbsp;<?php print($street);?></p>
+<p>Postal:&nbsp;<?php print($postal);?></p>
+<hr/>
+<a href="movie.html">Return to MacMovie Home</a>
 </div>
 </body>
 </html>

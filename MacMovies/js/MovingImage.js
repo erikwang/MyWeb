@@ -62,3 +62,12 @@ function stopMoving(){
 function resumeMoving(){
 	holdtime = 10;	
 }
+
+function goHome(){
+	if(! confirm("Are you sure to quit current page?")){
+		return false;
+	}else{
+		document.location.href = "./movie.html";
+	}
+}
+
