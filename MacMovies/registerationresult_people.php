@@ -1,16 +1,19 @@
+<?php require_once('dbconn.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <?php
         // put your code here
 		$firstname = $_POST["tf_firstname"];
 	    $lastname = $_POST["tf_lastname"];
-		$username = $_POST["tf_username"];
-		$city = $_POST["tf_city"];
-		$street = $_POST["tf_street"];
-		$provience = $_POST["tf_province"];
-		$phone = $_POST["tf_phone"];
-		$postal = $_POST["tf_postal"];
-
+		$dob = $_POST["tf_dob"];
+		mysql_select_db($database_cnn1, $cnn1);
+		$sql1 = "insert into tb_people(firstname,lastname,dob)values('$firstname','$lastname','$dob')";
+		$result1=mysql_query($sql1);
+		if (!$result1) {
+					echo("There is an error during insert new people information into database:".mysql_error());
+					mysql_free_result($result1);
+					exit();
+		}
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,22 +37,17 @@ input:focus {background-color:#900;color:#FFF}
 
 </head>
 
-<body onload="initText()">
+<body>
 <div id="headlayer" class="Layertitle">
 	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.html">Enter Movies</a></p>
 	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Registeration completed!</span></p>
 </div>
 <div class="Layer0" id="bodylayer">
-<p class="movienumber">Thank you for your registeration</p>
+<p class="movienumber">Thank you for your entry</p>
 <p>Please review thefollowing information you have entered:</p>
-<p>User Name:&nbsp;<?php print($username);?></p>
 <p>First Name:&nbsp;<?php print($firstname);?></p>
 <p>Last Name:&nbsp;<?php print($lastname);?></p>
-<p>Telephone Number:&nbsp;<?php print($phone);?> </p>
-<p>Province:&nbsp;<?php print($provience);?></p>
-<p>City:&nbsp;<?php print($city);?></p>
-<p>Street:&nbsp;<?php print($street);?></p>
-<p>Postal:&nbsp;<?php print($postal);?></p>
+<p>Date of Birth:&nbsp;<?php print($dob);?></p>
 <hr/>
 <a href="movie.html">Return to MacMovie Home</a>
 </div>

@@ -1,26 +1,18 @@
 // JavaScript Document
-province = new Array();
-province = ["ON","QC","NS","NB","MB","BC","PE","SK","AB","NL"];
+//province = new Array();
+//province = ["ON","QC","NS","NB","MB","BC","PE","SK","AB","NL"];
 
 function vaildateName(){
 	var flag = true;
 	var fn = document.getElementById("tf_firstname");
 	var un = document.getElementById("tf_username");
 	var ln = document.getElementById("tf_lastname");
-	var tn = document.getElementById("tf_phone");
-	var pr = document.getElementById("tf_province").value;
-	var po = document.getElementById("tf_postal");
-	var st = document.getElementById("tf_street");
-	var ct = document.getElementById("tf_city");
+	var dob = document.getElementById("tf_dob");
 	
 	var result_un = un.value.search(/^[A-Za-z0-9]{6}/);
 	var result_fn = fn.value.search(/^[A-Z]+[a-z]*/);
 	var result_ln = ln.value.search(/^[A-Z]+[a-z]*/);
-	var result_tn = tn.value.search(/^[1-9][0-9][0-9]\-[0-9][0-9][0-9]\-[0-9][0-9][0-9][0-9]$/);
-	var result_st = st.value.search(/^\w+/);
-	var result_ct = ct.value.search(/^\w+/);
-	var result_po = po.value.search(/^([0-9A-Za-z]){3}\s?([0-9A-Za-z]){3}$/);
-
+	var result_dob = dob.value.search(/^"19"[0-9][0-9]|"2"[0-8][0-9][0-9]\-[0][1-9]|[1][0-2]\-[0][1-9]|[1][0-9]|[2][0-9]|"30"|"31"$/);
 	var feedbackinfo = new Array();	
 	if(result_un != 0){
 		//alert("First name is illegal.");
@@ -53,57 +45,17 @@ function vaildateName(){
 		//document.getElementById("feedback").value="First, Last name are OK.";
 		feedbackinfo[2] = "Last name is OK.";
 	}
+	if(result_dob !=0 ){
+		//alert("First name is illegal.");
+		//document.getElementById("feedback").value="First, Last name is(are) illegal.";
+		feedbackinfo[3] = "Date of birth is illegal.";
+		flag = false;
+	}else{
+		//alert("First name is OK.");
+		//document.getElementById("feedback").value="First, Last name are OK.";
+		feedbackinfo[3] = "Date of birth is OK.";
+	}
 	
-	if(result_st !=0 ){
-		//alert("First name is illegal.");
-		//document.getElementById("feedback").value="First, Last name is(are) illegal.";
-		feedbackinfo[3] = "Street name is illegal.";
-		flag = false;
-	}else{
-		//alert("First name is OK.");
-		//document.getElementById("feedback").value="First, Last name are OK.";
-		feedbackinfo[3] = "Street name is OK.";
-	}
-
-	if(result_ct !=0 ){
-		//alert("First name is illegal.");
-		//document.getElementById("feedback").value="First, Last name is(are) illegal.";
-		feedbackinfo[4] = "City is illegal.";
-		flag = false;
-	}else{
-		//alert("First name is OK.");
-		//document.getElementById("feedback").value="First, Last name are OK.";
-		feedbackinfo[4] = "City is OK.";
-	}
-
-
-	if(result_tn !=0 ){
-		//alert("First name is illegal.");
-		//document.getElementById("feedback").value="First, Last name is(are) illegal.";
-		feedbackinfo[5] = "Telephone number is illegal.";
-		flag = false;
-	}else{
-		//alert("First name is OK.");
-		//document.getElementById("feedback").value="First, Last name are OK.";
-		feedbackinfo[5] = "Telephone number is OK.";
-	}
-
-	if(result_po !=0 ){
-		//alert("First name is illegal.");
-		//document.getElementById("feedback").value="First, Last name is(are) illegal.";
-		feedbackinfo[6] = "Postal code is illegal.";
-		flag = false;
-	}else{
-		//alert("First name is OK.");
-		//document.getElementById("feedback").value="First, Last name are OK.";
-		feedbackinfo[6] = "Postal code is OK.";
-	}	
-	if(checkProvince(pr)){
-		feedbackinfo[7] = "Province is OK.";	
-	}else{
-		feedbackinfo[7] = "Province is illegal.";
-		flag = false;	
-	}
 	
 	if(! flag){
 		feedBack("",feedbackinfo);
@@ -124,23 +76,8 @@ function showhint(tagid){
 		case "lastname":
 			themessage = "This is the lastname, start with a capital letter. e.g. Smith";
 			break;
-		case "city":
-			themessage = "This is the city name. e.g. Vancouver";
-			break;
-		case "street":
-			themessage = "This is the street name. e.g. Oak avenue";
-			break;
-		case "username":	
-			themessage = "This is the username, contains with letters and number. MUST BE 6 alphabetic letters.";
-			break;
-		case "province":	
-			themessage = 'This is the shortcut of Canada provinces, only contains one of "ON","QC","NS","NB","MB","BC","PE","SK","AB","NL".';
-			break;
-		case "phone":	
-			themessage = 'This is the phone number, accept "xxx-xxx-xxxx".';
-			break;
-		case "postal":	
-			themessage = 'This is the Postal code of Canada provinces, accept format like "xxx xxx" or "xxxxxx", non-caps-sensetive.';
+		case "dob":	
+			themessage = 'This is the date of birth for this people, accept format like "yyyy-mm-dd", non-caps-sensetive.';
 			break;
 		default:
 		themessage = "Please see the help message here.";

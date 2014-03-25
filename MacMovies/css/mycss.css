@@ -1,5 +1,5 @@
 /* CSS Document */
-.movingtext {font-size: 14px; position:absolute;left:0px;bottom:0px; background-color:#333; color:#FFFFFF;}
+.movingtext {font-size: 14px; position:absolute;left:1px;bottom:1px; color:#FFFFFF;}
 
 input:hover {color:#00F}
 input:focus {background-color:#900;color:#FFF}
@@ -41,7 +41,7 @@ input:focus {background-color:#900;color:#FFF}
 	position:absolute;
 	left:10px;
 	top:240px;
-	width:50%;
+	width:70%;
 	font-size:16px;
 	overflow:auto;
 	height:650px;
@@ -91,7 +91,8 @@ input:focus {background-color:#900;color:#FFF}
 	background-color: #333;
 	color: #FFF;
 	background-image: url(../../MacMovies/img/3178-line.jpg);
-	overflow: auto
+	overflow: auto;
+	padding-left:3px;
 }
 .Layer1 {
 	position:absolute;
