@@ -19,19 +19,9 @@ body,td,th {
 </head>
 
 <body>
-<div id="headlayer" class="Layertitle">
-	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.php">Enter Movies</a> | 
-<?php 
-// if privilege is 1, then this is admin, show add new movie link
-if($_SESSION['pri'] == 1){
-	print("<a href='addnewmovie.php'> Admin enter new movie</a>");
-}
-?>
-    
-    </p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Enter favorite movies</span></p>
-</div>
+<?php include 'titlediv.php';?>
 <div class="Layer0" id="bodylayer">
+<a href="movielist.php"> Back to list </a>
 <iframe height="600px" width="100%" frameborder="0" src="showmovie_embed.php?msn=<?php echo $msn;?>"></iframe>
 </div>
 </body>

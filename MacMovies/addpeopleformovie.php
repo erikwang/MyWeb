@@ -20,18 +20,7 @@ body { font-size:14px;}
 </head>
 
 <body>
-<div id="headlayer" class="Layertitle">
-	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.php">Enter Movies</a> | 
-<?php 
-// if privilege is 1, then this is admin, show add new movie link
-if(isset($_SESSION['pri']) && $_SESSION['pri'] == 1){
-		print("<a href='addnewmovie.php'> Admin enter new movie</a>");
-}else{
-		$_SESSION['pri'] = 9; // for guest
-}
-?></p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Add people information for movie</span></p>
-</div>
+<?php include 'titlediv.php';?>
 <div id ="bodylayer" class="Layer0">
 <form action="registerationresult_people.php" method="post" name="regform" class="form-inline" id="regform" onsubmit="return vaildateName(this)">
   <table width="80%" border="0" cellpadding="0" cellspacing="0" class="table">
@@ -42,17 +31,17 @@ if(isset($_SESSION['pri']) && $_SESSION['pri'] == 1){
    	  <td width="100" nowrap="nowrap"> Name </td>
 		<td align="left">
 		<div class="form-group">
-		First Name<input name="tf_firstname" type="text" class="form-control" id = "tf_firstname"  placeholder="Enter your first name" onmouseover="showhint('firstname')"/>
+		First Name<input name="tf_firstname" type="text" class="input-sm" id = "tf_firstname"  placeholder="Enter your first name" onmouseover="showhint('firstname')"/>
 		</div>
 		<div class="form-group">
-		Last Name<input type="text" id="tf_lastname" name="tf_lastname" class="form-control" placeholder="Enter your last name" onmouseover="showhint('lastname')"/>		
+		Last Name<input type="text" id="tf_lastname" name="tf_lastname" class="input-sm" placeholder="Enter your last name" onmouseover="showhint('lastname')"/>		
 		</div>
 	  </td>
 	</tr>
     <tr>
 		<td colspan="2" height="120px">
 		<div class="form-group">
-		Date of birth<input type="text" id="tf_dob" name="tf_dob" class="form-control" placeholder="Enter the date of brith" onmouseover="showhint('dob')"/>		
+		Date of birth<input type="text" id="tf_dob" name="tf_dob" class="input-sm" placeholder="Enter the date of brith" onmouseover="showhint('dob')"/>		
 		</div>
 
 		</td>

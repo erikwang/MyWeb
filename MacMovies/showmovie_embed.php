@@ -86,7 +86,7 @@ $row_rs5 = mysql_fetch_assoc($rs5);
 			echo $row_rs5['score'];
 			echo "<br>";
 			echo "Review: ";
-			echo $row_rs5['score'];
+			echo $row_rs5['mdesc'];
 			echo "<hr>";
 		} while ($row_rs5 = mysql_fetch_assoc($rs5));
 		}

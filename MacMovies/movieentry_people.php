@@ -63,18 +63,7 @@ function goReview(){
 </head>
 
 <body>
-<div id="headlayer" class="Layertitle">
-	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.php">Enter Movies</a> | 
-<?php 
-// if privilege is 1, then this is admin, show add new movie link
-if(isset($_SESSION['pri']) && $_SESSION['pri'] == 1){
-		print("<a href='addnewmovie.php'> Admin enter new movie</a>");
-}else{
-		$_SESSION['pri'] = 9; // for guest
-}
-?></p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Enter favorite movies</span></p>
-</div>
+<?php include 'titlediv.php';?>
 
 <form action="movieentry_people.php?msn=<?php echo $msn?>" method="post">
 <div class="Layer0" id="bodylayer">
@@ -113,8 +102,8 @@ if(isset($_SESSION['pri']) && $_SESSION['pri'] == 1){
 		</p>
     <p>
           <input name="button" type="submit" class="btn-primary" id="button" value="Add" />
+          <input name="button3" type="button" class="btn-warning" id="button3" value="Add review to the movie" onclick="goReview()" />
           <input name="button2" type="button" class="btn-success" id="button2" value="Complete" onclick="goList()"/>
-      <input name="button3" type="button" class="btn-warning" id="button3" value="Add review to the movie" onclick="goReview()" />
       </p>
 	<iframe height="600px" width="100%" frameborder="0" src="showmovie_embed.php?msn=<?php echo $msn;?>"></iframe>
 </div>

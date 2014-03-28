@@ -24,47 +24,25 @@ body,td,th {
 	color: #000000;
 }
 </style>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="css/mycss.css" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
-<div id="headlayer" class="Layertitle">
-	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.html">Enter Movies (Assgn2)</a> | 
-<?php 
-// if privilege is 1, then this is admin, show add new movie link
-if(isset($_SESSION['pri']) && $_SESSION['pri'] == 1){
-		print("<a href='movieentry.php'> New movie entry</a> | ");
-		print("<a href='addpeopleformovie.php'> New people entry</a>");
-}else{
-		$_SESSION['pri'] = 9; // for guest
-}
-?></p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Enter favorite movies</span></p>
-</div>
+<?php include 'titlediv.php';?>
 <div class="Layer0" id="bodylayer">
-<p>
-  <label for="textfield"></label>
-  Search for anything: 
-  <input type="text" name="textfield" id="textfield" />
-</p>
 <table width="80%" border="1" cellpadding="1" cellspacing="1">
   <tr class="btn-primary">
     <td width="25%">Movie Name</td>
     <td>Year</td>
     <td>Comments</td>
-    <td>Detail</td>
   </tr>
  <?php do { ?>
   <?php if ($totalRows_Recordset1 > 0){?>
 
   <tr class="table-striped">
-    <td width="25%" height="23" bgcolor="#FFFFFF"><?php echo $row_Recordset1['title'];?></td>
+    <td width="25%" height="23" bgcolor="#FFFFFF"><a href="showmovie.php?msn=<?php echo $row_Recordset1['msn']?>"><?php echo $row_Recordset1['title'];?></a></td>
     <td bgcolor="#FFFFFF"><?php echo $row_Recordset1['year'];?></td>
     <td bgcolor="#FFFFFF"><?php echo $row_Recordset1['introduction'];?></td>
-    <td bgcolor="#FFFFFF"><a href="showmovie.php?msn=<?php echo $row_Recordset1['msn']?>"
-    >Detail</a></td>
   </tr>
 <?php }} while ($row_Recordset1 = mysql_fetch_assoc($rs1));?>
 </table>

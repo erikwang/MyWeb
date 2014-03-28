@@ -1,4 +1,5 @@
-<?php require_once('dbconn.php'); ?>
+<?php require_once('dbconn.php');
+ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <?php
@@ -38,10 +39,7 @@ input:focus {background-color:#900;color:#FFF}
 </head>
 
 <body>
-<div id="headlayer" class="Layertitle">
-	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.html">Enter Movies</a></p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Registeration completed!</span></p>
-</div>
+<?php include 'titlediv.php';?>
 <div class="Layer0" id="bodylayer">
 <p class="movienumber">Thank you for your entry</p>
 <p>Please review thefollowing information you have entered:</p>
@@ -49,7 +47,7 @@ input:focus {background-color:#900;color:#FFF}
 <p>Last Name:&nbsp;<?php print($lastname);?></p>
 <p>Date of Birth:&nbsp;<?php print($dob);?></p>
 <hr/>
-<a href="movie.html">Return to MacMovie Home</a>
+<a href="movielist.php">Return to movie list</a>
 </div>
 </body>
 </html>

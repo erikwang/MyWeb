@@ -65,3 +65,39 @@ function enableinput(i){
 	document.getElementById("tf_mrating"+i).disabled = flag;
 	document.getElementById("mcategories"+i).disabled = flag;
 }
+
+function enableinput_search(i){
+	if(document.getElementById("checkbox"+i).checked == true){
+		flag = false;
+	}else{
+		flag = true;	
+	}
+	document.getElementById("se_attr"+i).disabled = flag;
+	document.getElementById("tf_value"+i).disabled = flag;
+}
+
+function appendSql(attr,value,sql){
+	switch (attr){
+		case 'firstname':
+			if(value != 'any'){
+				sql = sql + " and e.firstname like \'%"+value+"%\' ";
+			}
+			break;
+		case 'lastname':
+			if(value != 'any'){
+				sql = sql + " and e.lastname like \'%"+value+"%\' ";
+			}
+			break;
+		case 'score':
+			if(value != 'any'){
+				sql = sql + " or d.score like \'"+value+"\'";
+			}
+			break;
+		case 'genre':
+			if(value != 'any'){
+				sql = sql + " or f.gsn like \'"+value+"\'";
+			}
+			break;
+			
+	}
+}

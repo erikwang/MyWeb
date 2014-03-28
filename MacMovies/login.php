@@ -8,27 +8,26 @@
 </head>
 
 <body>
-<div id="headlayer" class="Layertitle">
-	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.html">Enter Movies</a></p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Enter favorite movies</span></p>
-</div>
+<?php include 'titlediv.php';?>
 <div class="Layer0" id="bodylayer">
 <p>Mac movie login</p>
 <form action="loginresult.php"> 
 <table width="400" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>User Name</td>
-    <td><input type="text" name="tf_account" id="tf_account" /></td>
+    <td><input name="tf_account" type="text" class="input-sm" id="tf_account" value="ek" /></td>
   </tr>
   <tr>
     <td>Password</td>
-    <td><input type="password" name="tf_pswd" id="tf_pswd" /></td>
+    <td><input name="tf_pswd" type="password" class="input-sm" id="tf_pswd" value="ek" /></td>
   </tr>
   <tr>
-    <td><input type="submit" name="button" id="button" value="Submit" /></td>
+    <td><input name="button" type="submit" class="btn-primary" id="button" value="Submit" /></td>
     <td>&nbsp;</td>
   </tr>
 </table>
+<p>&nbsp;</p>
+<p>Test admin account: ek /　ek</p>
 </form>
 </div>
 </body>

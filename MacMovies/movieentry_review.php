@@ -17,8 +17,7 @@
 	}
 	if(isset($_POST['se_score']) && isset($_POST['tf_review']) && isset($_POST['tf_email']) && isset($_POST['tf_name'])){
 	$sql1 = "insert into tb_review(descby, email, score, tb_movies_msn, mdesc) values('$name','$email','$score','$msn','$review')";
-	print($sql1);
-		$result1 = mysql_query($sql1, $cnn1) or die(mysql_error());
+	$result1 = mysql_query($sql1, $cnn1) or die(mysql_error());
 		if (!$result1) {
 			echo("There is an error during insert the review into database:".mysql_error());
 			mysql_free_result($result1);
@@ -36,23 +35,17 @@
 <title>Mac Movie - Movie entry - Step 3 add reviews</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/mycss.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function goList(){
+	window.location.href = "movielist.php";
+}
+</script>
 </head>
 
 <body>
+<?php include 'titlediv.php';?>
+
 <form action="movieentry_review.php?msn=<?php echo $msn;?>" method="post">
-<div id="headlayer" class="Layertitle">
-	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.html">Enter Movies (Assgn2)</a> | 
-<?php 
-// if privilege is 1, then this is admin, show add new movie link
-if(isset($_SESSION['pri']) && $_SESSION['pri'] == 1){
-		print("<a href='movieentry.php'> New movie entry</a> | ");
-		print("<a href='addpeopleformovie.php'> New people entry</a>");
-}else{
-		$_SESSION['pri'] = 9; // for guest
-}
-?></p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Enter favorite movies</span></p>
-</div>
 <div class="Layer0" id="bodylayer">
   <p>New movie entry - Step 3: Add reviews to the movie
   </p>
@@ -82,7 +75,8 @@ if(isset($_SESSION['pri']) && $_SESSION['pri'] == 1){
 </select>
   of 5</p>
   <p>
-    <input type="submit" name="button" id="button" value="Submit" />
+    <input name="button" type="submit" class="btn-primary" id="button" value="Submit" />
+    <input name="button2" type="button" class="btn-success" id="button2" value="Complete" onclick="goList()"/>
   </p>
   <iframe height="600px" width="100%" frameborder="0" src="showmovie_embed.php?msn=<?php echo $msn;?>"></iframe>
 </div>

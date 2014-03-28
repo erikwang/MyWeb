@@ -35,10 +35,7 @@ input:focus {background-color:#900;color:#FFF}
 </head>
 
 <body onload="initText()">
-<div id="headlayer" class="Layertitle">
-	<p><a href="movie.html">MacMovie home</a> | <a href="registeration.html">User Registration </a>| <a href="movieentry.html">Enter Movies</a></p>
-	<p><span id="movieText" class="movingtext" onmouseover="stopMoving()" onmouseout="resumeMoving()" >Registeration completed!</span></p>
-</div>
+<?php include 'titlediv.php';?>
 <div class="Layer0" id="bodylayer">
 <p class="movienumber">Thank you for your registeration</p>
 <p>Please review thefollowing information you have entered:</p>
